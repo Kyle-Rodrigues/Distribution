@@ -32,10 +32,7 @@ public class DistributionCentreController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping
-    public List<DistributionCentre> listDistributionCentres(){
-        
-    }
+    
 
     @PostMapping("/items")
     public Item addItem(@RequestBody Item item) {
