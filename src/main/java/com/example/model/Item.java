@@ -21,15 +21,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Item {
-    public enum Brand {
-        Nike("Nike"), Adidas("Adidas"), Gucci("Gucci");
-
-        public final String title;
-
-        private Brand(String title) {
-            this.title = title;
-        }
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +32,8 @@ public class Item {
     @Min(1000)
     private float price;
     private int quantity;
-    private Brand brand;
+    @NotBlank
+    private String brand;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(nullable = false)
