@@ -1,10 +1,11 @@
 package com.example.model;
 
-import org.springframework.data.annotation.Id;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Min;
@@ -20,17 +21,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Item {
-    public enum Brand {
-        Nike("Nike"), Adidas("Adidas"), Gucci("Gucci");
-
-        public final String title;
-
-        private Brand(String title) {
-            this.title = title;
-        }
-    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
     private String name;
@@ -39,7 +32,8 @@ public class Item {
     @Min(1000)
     private float price;
     private int quantity;
-    private Brand brand;
+    @NotBlank
+    private String brand;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(nullable = false)

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import com.example.model.DistributionCentre;
 import com.example.model.Item;
@@ -20,19 +19,16 @@ import com.example.repository.ItemRepository;
 @RestController
 @RequestMapping("/distribution-centre")
 public class DistributionCentreController {
-    private RestTemplate restTemplate;
 
-    
     @Autowired
     private ItemRepository itemRepository;
     @Autowired
     private DistributionCentreRepository distributionCentreRepository;
 
-    public DistributionCentreController(RestTemplate restTemplate){
-        this.restTemplate = restTemplate;
+    @GetMapping
+    public List<DistributionCentre> getAllCentres() {
+        return (List<DistributionCentre>) distributionCentreRepository.findAll();
     }
-
-    
 
     @PostMapping("/items")
     public Item addItem(@RequestBody Item item) {
