@@ -35,7 +35,7 @@ public class DistributionApplication {
 							.brand("Gucci").distributionCentre(distributionCentre1).build());
 
 			var distributionCentre2 = dcRepository
-					.save(DistributionCentre.builder().name("Warehouse 1").latitude(53.5229f).longitude(-113.6216f)
+					.save(DistributionCentre.builder().name("Warehouse 2").latitude(53.5229f).longitude(-113.6216f)
 							.build());
 
 			itemRepository
@@ -49,9 +49,8 @@ public class DistributionApplication {
 							.brand("Gucci").distributionCentre(distributionCentre2).build());
 
 			var distributionCentre3 = dcRepository
-					.save(DistributionCentre.builder().name("Warehouse 1").latitude(53.5229f).longitude(-113.6216f)
+					.save(DistributionCentre.builder().name("Warehouse 3").latitude(53.5229f).longitude(-113.6216f)
 							.build());
-
 			itemRepository
 					.save(Item.builder().name("Polo Shirt").price(1000.39f).quantity(0).yearCreated(2021)
 							.brand("Nike").distributionCentre(distributionCentre3).build());
@@ -61,6 +60,19 @@ public class DistributionApplication {
 			itemRepository
 					.save(Item.builder().name("T-Shirt").price(1029.99f).quantity(17).yearCreated(2021)
 							.brand("Gucci").distributionCentre(distributionCentre3).build());
+
+			var distributionCentre4 = dcRepository
+					.save(DistributionCentre.builder().name("Warehouse 4").latitude(80.5124f).longitude(-20.6216f)
+							.build());
+			itemRepository
+					.save(Item.builder().name("Polo Shirt").price(1000.39f).quantity(0).yearCreated(2021)
+							.brand("Nike").distributionCentre(distributionCentre4).build());
+			itemRepository
+					.save(Item.builder().name("Hoodie").price(1079.99f).quantity(3).yearCreated(2021)
+							.brand("Adidas").distributionCentre(distributionCentre4).build());
+			itemRepository
+					.save(Item.builder().name("T-Shirt").price(1029.99f).quantity(17).yearCreated(2021)
+							.brand("Gucci").distributionCentre(distributionCentre4).build());
 		};
 	}
 }

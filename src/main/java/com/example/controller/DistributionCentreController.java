@@ -47,6 +47,6 @@ public class DistributionCentreController {
 
     @GetMapping("/items/{brand}/{name}")
     public List<Item> getItemsByBrandAndName(@PathVariable String brand, @PathVariable String name) {
-        return itemRepository.findByBrandAndName(brand, name);
+        return (List<Item>) itemRepository.findByBrandAndName(brand, name);
     }
 }
